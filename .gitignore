@@ -1,12 +1,20 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+<<<<<<< HEAD
 *.*~
+=======
+>>>>>>> 5374d64768657baa64ef39640ec39f2cb90baff8
 
 # C extensions
 *.so
 
 # Distribution / packaging
+<<<<<<< HEAD
+=======
+.Python
+env/
+>>>>>>> 5374d64768657baa64ef39640ec39f2cb90baff8
 bin/
 build/
 develop-eggs/
@@ -26,6 +34,10 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
+<<<<<<< HEAD
+=======
+htmlcov/
+>>>>>>> 5374d64768657baa64ef39640ec39f2cb90baff8
 .tox/
 .coverage
 .cache
@@ -49,3 +61,7 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5374d64768657baa64ef39640ec39f2cb90baff8
