@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Results for: {{ question }} ({{ language }})</h3>
+
+<table>
+{% for match in results %}
+<tr>
+    <td>{{ match }}</td>
+</tr>
+{% endfor %}
+
+</table>
+{% endblock %}

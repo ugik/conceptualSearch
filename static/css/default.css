@@ -1,0 +1,33 @@
+body {
+    background-attachment: fixed;
+    background-color: #FFFFFF;
+#    background-image: url(/static/images/logo.jpg);
+    background-position: center top;
+    background-repeat: repeat;
+    color: #000;
+    margin: 10;
+    padding: 10;
+	test-align: left;
+	}
+
+	#page {
+		width: 960px;
+		test-align: left;
+		margin: 10px auto 20px auto;
+		backgroun-color: #0c0c0c;
+	}
+
+	#content {
+		float: left;
+		width: 600px;
+		border: 1pm solid #f00;
+		padding: 10px;
+	}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+tr:nth-child(odd)		{ background-color:#eee; }
+tr:nth-child(even)		{ background-color:#fff; }
+

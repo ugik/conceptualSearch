@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table>
+<tr>
+<td><form action="/search/" method="get">
+    <input type="text" name="question" size="80"></td>
+
+<div align="right">
+<td><select name="language">
+<option value="English">English</option>
+<option value="Spanish"{% if language == "Spanish" %}selected="selected"{% endif %}>Spanish</option>
+<option value="Italian"{% if language == "Italian" %}selected="selected"{% endif %}>Italian</option>
+<option value="French"{% if language == "French" %}selected="selected"{% endif %}>French</option>
+<option value="German"{% if language == "German" %}selected="selected"{% endif %}>German</option>
+<option value="Portuguese"{% if language == "Portuguese" %}selected="selected"{% endif %}>Portuguese</option>
+<option value="Chinese"{% if language == "Chinese" %}selected="selected"{% endif %}>Chinese</option>
+<option value="Japanese"{% if language == "Japanese" %}selected="selected"{% endif %}>Japanese</option>
+
+</select></div></td></tr>
+<tr><td>
+    <input type="submit" value="Search"></td></tr>
+</form>
+</table>
+
+{% if results %}
+<strong>Results for: {{ question }}</strong> ({{ language }} {{ time }}ms.)
+
+<table>
+{% for match in results %}
+<tr>
+    <td>{{ match }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}
+
+

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static "css/default.css" %}">
+
+    {% block extrahead %}{% endblock %}
+
+	<title>{% block title %}conceptualSearch {% endblock %}</title>
+
+</head>
+
+<body>
+<img src="/static/images/logo.jpg" width="75"/>
+	<div id="page">
+
+	<div id="sidebar">
+		{% block sidebar %}
+		{% endblock %}
+	</div>
+
+	<div id="content">
+	{% block content %}
+		
+	{% endblock %}
+
+	</div>
+
+	</div>
+
+</body>
+</html>
+
