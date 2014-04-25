@@ -6,9 +6,9 @@
 #
 echo "copying to EC2 instance..."
 if [[ "$2" == "" ]]
-	then echo "usage: bash EC2start {host-name} {setup-script}"
+	then echo "usage: bash EC2start.sh {host-name} EC2setup.sh"
     else echo 'setup script"$2"'		#scp -i ~/Downloads/ec2.pem data.sql ubuntu@"$1":data.sql
-		scp -i ~/Downloads/ec2.pem EC2setup.sh ubuntu@"$1":"$2"
+		scp -i ~/Downloads/ec2.pem "$2" ubuntu@"$1":"$2"
 		ssh -i ~/Downloads/ec2.pem ubuntu@"$1" bash "$2"
 fi
 

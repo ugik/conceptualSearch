@@ -9,9 +9,13 @@ import pickle
 
 # get pw from hidden file, TBD: figure out how to get EC2 instance env variables set
 
-fname = '~/.env'
+pw = ""
+fname = os.path.abspath('../')+'/.env'  # local file
 if os.path.isfile(fname):
-	pw = open(fname, 'r').read()[:16]
+    pw = open(fname, 'r').read()[:16]
+fname = '/home/ubuntu/.env'             # ec2 file
+if os.path.isfile(fname):
+    pw = open(fname, 'r').read()[:16]
 
 def index(request):
     if not request.user.is_authenticated():

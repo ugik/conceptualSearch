@@ -9,7 +9,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     (r'^user/', include('Auth.urls')),
     (r'^$', 'conceptualSearch.views.index'),
-    (r'^search-form/$', 'conceptualSearch.views.search_form'),
     (r'^search/$', 'conceptualSearch.views.search'),
  )
 

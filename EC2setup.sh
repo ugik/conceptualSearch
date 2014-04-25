@@ -26,14 +26,20 @@ git clone https://github.com/$repo/$project.git
 # connect Apache config to Django project
 sudo rm /etc/apache2/httpd.conf
 sudo touch /etc/apache2/httpd.conf
-sudo chmod 777 /etc/apache2/*.conf
-sudo echo "Alias /static /home/ubuntu/django_test/static" >> /etc/apache2/httpd.conf
+sudo chmod 755 /etc/apache2/*.conf
+sudo echo "Alias /static /home/ubuntu/"$project"/static" >> /etc/apache2/httpd.conf
 sudo echo "WSGIScriptAlias / /home/ubuntu/"$project_app"/wsgi.py" >> /etc/apache2/httpd.conf
 sudo echo "WSGIPythonPath /home/ubuntu/"$project >> /etc/apache2/httpd.conf
+sudo echo " " >> /etc/apache2/httpd.conf
+sudo echo "<Directory /home/ubuntu/"$project">" >> /etc/apache2/httpd.conf
+sudo echo "Options All" >> /etc/apache2/httpd.conf
+sudo echo "AllowOverride All" >> /etc/apache2/httpd.conf
+sudo echo "Require all granted" >> /etc/apache2/httpd.conf
+sudo echo "</Directory>" >> /etc/apache2/httpd.conf
+sudo echo " " >> /etc/apache2/httpd.conf
 sudo echo "<Directory /home/ubuntu/"$project_app">" >> /etc/apache2/httpd.conf
 sudo echo "<Files wsgi.py>" >> /etc/apache2/httpd.conf
-sudo echo "    Order deny,allow" >> /etc/apache2/httpd.conf
-sudo echo "    Allow from all" >> /etc/apache2/httpd.conf
+sudo echo "    Require all granted" >> /etc/apache2/httpd.conf
 sudo echo "</Files>" >> /etc/apache2/httpd.conf
 sudo echo "</Directory>" >> /etc/apache2/httpd.conf
 sudo echo " " >> /etc/apache2/httpd.conf
@@ -41,8 +47,7 @@ sudo echo " " >> /etc/apache2/httpd.conf
 # set permissions for static files
 sudo echo "<Directory /home/ubuntu/"$project"/static>" >> /etc/apache2/httpd.conf
 sudo echo "<Files wsgi.py>" >> /etc/apache2/httpd.conf
-sudo echo "    Order deny,allow" >> /etc/apache2/httpd.conf
-sudo echo "    Allow from all" >> /etc/apache2/httpd.conf
+sudo echo "    Require all granted" >> /etc/apache2/httpd.conf
 sudo echo "</Files>" >> /etc/apache2/httpd.conf
 sudo echo "</Directory>" >> /etc/apache2/httpd.conf
 
@@ -72,6 +77,6 @@ cd ~
 
 # references:
 # remote LAMP setup: http://nickpolet.com/blog/1/
-# locale LAMP setup: http://www.lleess.com/2013/05/install-django-on-apache-server-with.html#.UwavkDddV38
+# local LAMP setup: http://www.lleess.com/2013/05/install-django-on-apache-server-with.html#.UwavkDddV38
 # http://cuppster.com/2011/01/30/using-git-to-remotely-install-website-updates/
 
